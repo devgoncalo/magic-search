@@ -1,3 +1,3 @@
 # magicsearch
 
-Stack: Next.js, Postgres, Drizzle, Upstash
+Stack: Next.js, TurboPack, Postgres, Drizzle, Upstash

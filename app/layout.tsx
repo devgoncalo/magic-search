@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+
 import { Icons } from "@/components/icons";
+import SearchBar from "@/components/search-bar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="relative min-h-screen isolate overflow-hidden border-b border-gray-200 bg-white">
+        <div className="relative min-h-screen isolate overflow-hidden border-b border-gray-200 bg-white text-slate-900">
           <svg
             className="absolute inset-0 -z-10 h-full w-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
             aria-hidden="true"
@@ -56,6 +58,8 @@ export default function RootLayout({
               </p>
 
               <div className="mx-auto mt-16 w-full max-w-2xl flex flex-col">
+                <SearchBar />
+
                 {children}
               </div>
             </div>
