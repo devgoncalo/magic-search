@@ -10,4 +10,4 @@ export const productsTable = pgTable("products", {
   updatedAt: timestamp("updated_at").defaultNow(),
 })
 
-export type Products = typeof productsTable.$inferSelect
+export type Product = typeof productsTable.$inferSelect
