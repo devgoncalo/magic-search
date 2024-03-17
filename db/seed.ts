@@ -5,12 +5,12 @@ import { drizzle } from 'drizzle-orm/postgres-js'
 
 import { faker } from '@faker-js/faker'
 import { Index } from '@upstash/vector'
-// import { vectorize } from '../lib/vectorize'
+import { vectorize } from '../lib/vectorize'
 import { productsTable } from './schema'
 
 dotenv.config()
 
-// const index = new Index()
+const index = new Index()
 
 async function main() {
   const connectionString = process.env.DATABASE_URL!
@@ -140,17 +140,17 @@ async function main() {
   products.forEach(async (product) => {
     await db.insert(productsTable).values(product).onConflictDoNothing()
 
-    // await index.upsert({
-    //   id: product.id!,
-    //   vector: await vectorize(`${product.name}: ${product.description}`),
-    //   metadata: {
-    //     id: product.id,
-    //     name: product.name,
-    //     description: product.description,
-    //     price: product.price,
-    //     imageId: product.imageId,
-    //   },
-    // })
+    await index.upsert({
+      id: product.id!,
+      vector: await vectorize(`${product.name}: ${product.description}`),
+      metadata: {
+        id: product.id,
+        name: product.name,
+        description: product.description,
+        price: product.price,
+        imageId: product.imageId,
+      },
+    })
   })
 }
 
