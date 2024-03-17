@@ -80,7 +80,7 @@ const Page = async ({ searchParams }: PageProps) => {
   }
 
   return (
-    <ul className="py-4 divide-y divide-zinc-100 bg-white shadow-md rounded-b-md">
+    <ul className="mt-4 py-4 divide-y divide-zinc-100 bg-white shadow-md rounded-b-md">
       {products.slice(0, 3).map((product) => (
         <Link key={product.id} href={`/products/${product.id}`}>
           <li className="mx-auto py-4 px-8 flex space-x-4">

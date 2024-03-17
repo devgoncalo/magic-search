@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
-import { Icons } from "@/components/icons";
 import SearchBar from "@/components/search-bar";
+import { Search, SearchCode, Sparkle } from "lucide-react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -47,7 +47,11 @@ export default function RootLayout({
 
           <div className="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex gap-16 lg:px-8 lg:py-24">
             <div className="h-full w-full flex flex-col items-center gap-4">
-              <Icons.Sparkles className="size-16" />
+              <div className="relative flex">
+                <Sparkle className="size-8 rotate-[12deg] text-yellow-500 absolute left-[3rem] bottom-12" />
+                <Sparkle className="size-7 rotate-[12deg] text-yellow-500 absolute left-[3.5rem] bottom-6" />
+                <Search className="size-16 text-slate-900" />
+              </div>
 
               <h1 className="tracking-tight text-4xl sm:text-6xl font-bold">
                 MagicSearch
